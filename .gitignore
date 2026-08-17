@@ -27,3 +27,11 @@
 
 # Dotenv and similar local-only files
 *.local
+
+# Next.js web app
+/web/.next
+/web/next-env.d.ts
+/web/*.tsbuildinfo
+
+# 本地调试截图
+/browser-screenshots

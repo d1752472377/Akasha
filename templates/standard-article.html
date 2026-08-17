@@ -1,0 +1,40 @@
+<!--
+  contentHtml 示例：粘贴到后台「文章 → 内容（HTML）」的文本框，或存成 .html 文件后上传。
+  约束见 templates/README.md：只用 tpl-* 类、不写 <style>、段落用 div。
+-->
+<h1 class="tpl-title">文章标题</h1>
+<div class="tpl-date">2026年8月17日</div>
+
+<div class="tpl-lead">一段引言：用一句话说明这篇文章讲什么。</div>
+
+<div class="tpl-cover-wrapper">
+  <img class="tpl-cover" src="https://cdn.sanity.io/images/dcflbleb/production/example.png" alt="封面说明" />
+</div>
+
+<div class="tpl-section">
+  <h2 class="tpl-section-title">第一小节</h2>
+  <div class="tpl-paragraph">
+    段落正文写在这里。段落用 div 而不是 p，避免块级内容嵌套形成非法 HTML 导致 hydration 报错。
+  </div>
+  <div class="tpl-paragraph">
+    第二个段落。文本里可以正常使用行内标签，比如 <b>加粗</b>、<em>斜体</em>、
+    <code>行内代码</code> 和
+    <a href="https://example.com" target="_blank" rel="noopener noreferrer">外链</a>。
+  </div>
+  <div class="tpl-quote">一句想强调的话，渲染成引用块。</div>
+  <ul class="tpl-list">
+    <li class="tpl-list-item">要点一：列表项用语义标签 li</li>
+    <li class="tpl-list-item">要点二：不要为了「保险」全写成 div</li>
+    <li class="tpl-list-item">要点三：语义化标签对 SEO 有好处，能留则留</li>
+  </ul>
+</div>
+
+<div class="tpl-section">
+  <h2 class="tpl-section-title">第二小节</h2>
+  <div class="tpl-paragraph">第二小节的正文……</div>
+  <div class="tpl-image-wrapper">
+    <img class="tpl-image" src="https://cdn.sanity.io/images/dcflbleb/production/example.png" alt="图片说明" />
+  </div>
+</div>
+
+<div class="tpl-note">💡 文末提示：一段补充说明或免责声明。</div>
