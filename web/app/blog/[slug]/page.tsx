@@ -7,6 +7,7 @@ import PortableText from '@/components/PortableText'
 import {formatDate} from '@/lib/format'
 import {POST_BY_SLUG_QUERY, POST_NEIGHBORS_QUERY, POST_SLUGS_QUERY} from '@/lib/queries'
 import {client, urlFor} from '@/lib/sanity'
+import {sanitizeArticleHtml} from '@/lib/sanitizeHtml'
 import type {Post, PostNeighbor} from '@/lib/types'
 
 interface PageProps {
@@ -48,8 +49,11 @@ export default async function PostPage({params}: PageProps) {
     <main className="container">
       <article className="post">
         {post.contentHtml ? (
-          // 新文章：正文是完整 HTML 字符串，直接注入渲染
-          <div className="post-body" dangerouslySetInnerHTML={{__html: post.contentHtml}} />
+          // 正文是完整 HTML：先清洗（去文档级标签、<style> 作用域化到 .post-body）再注入
+          <div
+            className="post-body"
+            dangerouslySetInnerHTML={{__html: sanitizeArticleHtml(post.contentHtml)}}
+          />
         ) : post.body?.length ? (
           // 历史文章：早期富文本兜底渲染
           <>
