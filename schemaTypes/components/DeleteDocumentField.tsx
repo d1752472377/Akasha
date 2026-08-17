@@ -1,4 +1,5 @@
-import {Button, Card, Stack, Text, useToast} from '@sanity/ui'
+import {Button, Card, Stack, Text} from '@sanity/ui'
+import {useToast} from '@sanity/ui/toast'
 import {useDocumentOperation, useFormValue} from 'sanity'
 
 /**
