@@ -10,7 +10,9 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion: '2025-01-01',
-  useCdn: true,
+  // 关闭 CDN 缓存：内容发布后立即生效（页面本身有 ISR revalidate=60，
+  // 查询只在构建/再生成时发生，直读 API 的流量成本可忽略）
+  useCdn: false,
 })
 
 const builder = imageUrlBuilder(client)
